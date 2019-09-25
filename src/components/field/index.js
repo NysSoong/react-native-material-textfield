@@ -316,10 +316,13 @@ export default class TextField extends PureComponent {
       animationDuration,
     };
 
-    return {React.isValidElement(affix)
-  ? affix // Return the custom element
-  : (<Affix style={affixTextStyle} {...props}>{affix}</Affix>)
-}
+    return React.isValidElement(affix) ? (
+      affix
+    ) : (
+      <Affix style={affixTextStyle} {...props}>
+        {affix}
+      </Affix>
+    );
   }
 
   render() {
